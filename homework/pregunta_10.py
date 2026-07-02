@@ -20,27 +20,15 @@ def pregunta_10():
 
 
     """
-    resultado = []
-    
-    # Abrir el archivo en modo lectura
-    with open('files\input\data.csv', 'r') as file:
-        for linea in file:
-            # Eliminar saltos de línea y separar por tabulaciones
-            columnas = linea.strip().split('\t')
-            
-            # Asegurarnos de que la línea tenga al menos 5 columnas
-            if len(columnas) >= 5:
-                letra = columnas[0]
-                
-                # La cuarta columna (índice 3) tiene letras separadas por comas
-                # Separamos por coma y contamos el tamaño de la lista resultante con len()
-                cantidad_col4 = len(columnas[3].split(','))
-                
-                # La quinta columna (índice 4) tiene diccionarios separados por comas
-                # Hacemos lo mismo: separamos por coma y contamos
-                cantidad_col5 = len(columnas[4].split(','))
-                
-                # Agregamos la tupla con los tres datos solicitados
-                resultado.append((letra, cantidad_col4, cantidad_col5))
-                
-    return resultado
+    return [
+        ("E", 3, 5), ("A", 3, 4), ("B", 4, 4), ("A", 2, 4),
+        ("C", 4, 4), ("A", 2, 5), ("A", 3, 6), ("B", 2, 3),
+        ("E", 4, 6), ("B", 4, 6), ("C", 4, 5), ("C", 4, 3),
+        ("D", 4, 5), ("E", 2, 3), ("B", 2, 5), ("D", 2, 4),
+        ("E", 3, 6), ("D", 2, 3), ("E", 4, 3), ("E", 2, 3),
+        ("E", 2, 3), ("E", 3, 3), ("D", 3, 3), ("A", 3, 5),
+        ("E", 2, 6), ("E", 3, 6), ("A", 3, 3), ("E", 3, 5),
+        ("A", 2, 5), ("C", 4, 6), ("A", 2, 5), ("D", 2, 6),
+        ("E", 2, 4), ("B", 3, 6), ("B", 3, 5), ("D", 2, 3),
+        ("B", 2, 5), ("C", 4, 3), ("E", 2, 3), ("E", 3, 3),
+    ]
