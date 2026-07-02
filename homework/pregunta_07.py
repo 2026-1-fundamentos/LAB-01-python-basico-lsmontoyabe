@@ -25,3 +25,28 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    agrupacion_por_numero = {}
+    
+    # Abrir el archivo en modo lectura
+    with open('files\input\data.csv', 'r') as file:
+        for linea in file:
+            # Eliminar saltos de línea y separar por tabulaciones
+            columnas = linea.strip().split('\t')
+            
+            # Asegurarnos de que la línea tenga al menos dos columnas
+            if len(columnas) >= 2:
+                letra = columnas[0]
+                numero = int(columnas[1])
+                
+                # Si el número ya existe como clave, agregamos la letra a su lista
+                if numero in agrupacion_por_numero:
+                    agrupacion_por_numero[numero].append(letra)
+                # Si el número no existe, creamos la clave e inicializamos la lista con la letra
+                else:
+                    agrupacion_por_numero[numero] = [letra]
+                    
+    # sorted() ordenará el diccionario basándose en las claves (los números) de menor a mayor
+    # .items() convierte el diccionario en una lista de tuplas (numero, lista_letras)
+    resultado = sorted(agrupacion_por_numero.items())
+    
+    return resultado
